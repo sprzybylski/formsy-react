@@ -515,14 +515,13 @@ Formsy.Form = React.createClass({
     delete this.model[component.props.name];
   },
   render: function () {
-
-    return React.DOM.form({
-        onSubmit: this.submit,
+    var props = {
+        action: this.props.url,
+        method: this.props.method,
         className: this.props.className
-      },
-      this.props.children
-    );
+    };
 
+    return React.DOM.form(props, this.props.children);
   }
 });
 
